@@ -335,7 +335,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
 
     void Update()
     {
-        if(!needToConnectClient && !xayaClient.connected)
+        if(needToConnectClient && !xayaClient.connected)
         {
             if(ConnectClient())
             {
