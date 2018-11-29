@@ -320,13 +320,20 @@ public class MoveGUIAndGameController : MonoBehaviour {
         }
         else
         {
-            if (nameSelected.Length > 1)
+            try
             {
-                ShowError(xayaClient.ExecuteMove(nameSelected, DirectionDropdownToMoverDir(directionSelected), distanceSelected));
+                if (nameSelected.Length > 1)
+                {
+                    ShowError(xayaClient.ExecuteMove(nameSelected, DirectionDropdownToMoverDir(directionSelected), distanceSelected));
+                }
+                else
+                {
+                    ShowError("No name selected");
+                }
             }
-            else
+            catch (Exception e)
             {
-                ShowError("No name selected");
+                ShowError(e.ToString());
             }
         }
 
