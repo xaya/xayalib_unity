@@ -162,7 +162,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
     void FillSettingsFromPlayerPrefs()
     {
         host_s = PlayerPrefs.GetString("host", "http://127.0.0.1");
-        hostport_s = PlayerPrefs.GetString("hostport", "8332");
+        hostport_s = PlayerPrefs.GetString("hostport", "8396");
         tcpport_s = PlayerPrefs.GetString("tcpport", "8900");
         rpcuser_s = PlayerPrefs.GetString("rpcuser", "xayagametest");
         rpcpassword_s = PlayerPrefs.GetString("rpcpassword", "xayagametest");
