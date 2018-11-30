@@ -39,7 +39,7 @@ namespace MoverStateCalculator
 
 
         private delegate string InitialCallback();
-        private delegate string ForwardCallback(string oldState, string blockData, string undoData);
+        private delegate string ForwardCallback(string oldState, string blockData, string undoData, out string newData);
         private delegate string BackwardCallback(string newState, string blockData, string undoData);
 
         InitialCallback initialCallback;
@@ -64,13 +64,14 @@ namespace MoverStateCalculator
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate int CSharp_ConnectToTheDaemon(string gameId, string XayaRpcUrl, int GameRpcPort, int EnablePruning, int chain, string storageType, string dataDirectory, string glogName, string glogDataDir);
 
-        public XayaWrapper(string dataPath, XAYAConnector _parent)
+        public XayaWrapper(string dataPath, XAYAConnector _parent, ref string result)
         {
+
             parent = _parent;
 
             if(!NativeMethods.SetDllDirectory(dataPath + "\\..\\XayaStateProcessor\\"))
             {
-                Debug.Log("Could not set dll directory");
+                result = "Could not set dll directory";
                 return;
             }
 
@@ -79,28 +80,28 @@ namespace MoverStateCalculator
 
             if (pDll == IntPtr.Zero)
             {
-                Debug.Log("Could not load " + dataPath.Replace("/", "\\") + "\\..\\XayaStateProcessor\\libxayawrap.dll" + pDll.ToString());
+                result = "Could not load " + dataPath.Replace("/", "\\") + "\\..\\XayaStateProcessor\\libxayawrap.dll";
                 return;
             }
 
             IntPtr pSetInitialCallback = NativeMethods.GetProcAddress(pDll, "setInitialCallback");   
             if(pSetInitialCallback == IntPtr.Zero)
             {
-                Debug.Log("Could not load resolve setInitialCallback");
+                result = "Could not load resolve setInitialCallback";
                 return;
             }
 
             IntPtr pSetForwardCallback = NativeMethods.GetProcAddress(pDll, "setForwardCallback");
             if (pSetForwardCallback == IntPtr.Zero)
             {
-                Debug.Log("Could not load resolve pSetForwardCallback");
+                result = "Could not load resolve pSetForwardCallback";
                 return;
             }
 
             IntPtr pSetBackwardCallback = NativeMethods.GetProcAddress(pDll, "setBackwardCallback");
             if (pSetBackwardCallback == IntPtr.Zero)
             {
-                Debug.Log("Could not load resolve pSetBackwardCallback");
+                result = "Could not load resolve pSetBackwardCallback";
                 return;
             }
 
@@ -117,15 +118,16 @@ namespace MoverStateCalculator
             backwardsCallback = new BackwardCallback(CallbackFunctions.backwardCallbackResult);
             SetBackwardCallback(backwardsCallback);
 
+            result = "Wrapper Initied";
+
         }
 
-        public void Connect(string dataPath, string FLAGS_xaya_rpc_url)
+        public string Connect(string dataPath, string FLAGS_xaya_rpc_url)
         {
             IntPtr pDaemonConnect = NativeMethods.GetProcAddress(pDll, "CSharp_ConnectToTheDaemon");
             if (pDaemonConnect == IntPtr.Zero)
             {
-                Debug.Log("Could not load resolve CSharp_ConnectToTheDaemon");
-                return;
+                return "Could not load resolve CSharp_ConnectToTheDaemon";
             }
 
             CSharp_ConnectToTheDaemon ConnectToTheDaemon_CSharp = (CSharp_ConnectToTheDaemon)Marshal.GetDelegateForFunctionPointer(pDaemonConnect, typeof(CSharp_ConnectToTheDaemon));
@@ -152,6 +154,8 @@ namespace MoverStateCalculator
             //This we be blocked by dll until "stop" command is issued
             ShutdownDaemon();
             parent.CheckIfFatalError();
+
+            return "Done";
         }
 
         public void Stop()
@@ -172,15 +176,12 @@ namespace MoverStateCalculator
         {
             if (pDll != IntPtr.Zero)
             {
-                Debug.Log("Freeing library...");
                 initialCallback = null;
                 forwardCallback = null;
                 backwardsCallback = null;
                 NativeMethods.FreeLibrary(pDll);
                 pDll = IntPtr.Zero;
             }
-            
-            Debug.Log("Done freeing!");
             MoveGUIAndGameController.Instance.xayaConnector.wrapper = null;
         }
 

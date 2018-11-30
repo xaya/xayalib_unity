@@ -22,7 +22,7 @@ namespace MoverStateCalculator
 			return "";         
 		}
 
-		public static string forwardCallbackResult(string oldState, string blockData, string undoData)
+		public static string forwardCallbackResult(string oldState, string blockData, string undoData, out string newData)
 		{
             GameState state = JsonConvert.DeserializeObject<GameState>(oldState);
             dynamic blockDataS = JsonConvert.DeserializeObject(blockData);
@@ -30,7 +30,8 @@ namespace MoverStateCalculator
                      
 			if(blockData.Length <= 1)
 			{
-                return "" + "~" + undoData;
+                newData = "";
+                return "";
             }
 
             MoveGUIAndGameController.Instance.UpdateBlockSynch((int)blockDataS["block"]["height"]);
@@ -144,11 +145,8 @@ namespace MoverStateCalculator
             //Lets just fill vars and let GUI to pick up
             MoveGUIAndGameController.Instance.state = state;
 
-            //In c++, we explode results using '~' as delimeter
-            //This is potential trouble if actual JSON data
-            //has it, so later we need to rewrite this part
-            //to properly marshall out strings
-            return JsonConvert.SerializeObject(state) + "~" + undoData;
+            newData = JsonConvert.SerializeObject(state);
+            return undoData;
 		}
 
 

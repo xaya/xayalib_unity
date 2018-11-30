@@ -44,15 +44,34 @@ namespace MoverStateCalculator
             Task task;
             this.StartCoroutineAsync(DaemonAsync(), out task);
             yield return StartCoroutine(task.Wait());
+
+            if (task.State == TaskState.Error)
+            {
+                MoveGUIAndGameController.Instance.ShowError(task.Exception.ToString());
+                Debug.LogError(task.Exception.ToString());
+            }
+
         }
 
         IEnumerator DaemonAsync()
         {
             //We keep DDLs inside Asset folder for Editor,
             //hence here we resolve the path for it
-            wrapper = new XayaWrapper(dPath, this);
-            wrapper.Connect(dPath, FLAGS_xaya_rpc_url);
-            yield return new WaitForSeconds(0.1f);
+
+            string functionResult = "";
+
+            wrapper = new XayaWrapper(dPath, this, ref functionResult);
+
+            yield return Ninja.JumpToUnity;
+            Debug.Log(functionResult);
+            yield return Ninja.JumpBack;
+
+            functionResult = wrapper.Connect(dPath, FLAGS_xaya_rpc_url);
+
+            yield return Ninja.JumpToUnity;
+            Debug.Log(functionResult);
+            yield return Ninja.JumpBack;
+
         }
 
         /* For some reason, issueing stop command might fail, 
@@ -72,7 +91,7 @@ namespace MoverStateCalculator
 
         void WaitForFileAndCheck()
         {
-            /* LETS EXTRAT TH INFO WE NEED FROM GLOG FILES*/
+            /* LETS EXTRACT TH INFO WE NEED FROM GLOG FILES*/
             string[] files = Directory.GetFiles(dPath + "\\..\\XayaStateProcessor\\glogs\\");
             for (int s = 0; s < files.Length; s++)
             {
