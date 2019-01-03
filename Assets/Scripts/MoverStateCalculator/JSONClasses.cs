@@ -36,11 +36,20 @@ namespace MoverStateCalculator
 		public Int32 steps_left;
 
     }
-    
+
+
+    public class GameStateResult
+    {
+        public string blockhash;
+        public string chain;
+        public string gameid;
+        public string state;
+        public string gamestate;
+    }
+
     /** The full game state.  */
     public class GameState
     {
-
         /** All players on the map and their current state.  */
 		public Dictionary<string, PlayerState> players;
 

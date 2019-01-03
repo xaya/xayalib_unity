@@ -3,6 +3,8 @@ using UnityEngine;
 using CielaSpike;
 using System.IO;
 using System;
+using Newtonsoft.Json;
+using BitcoinLib.Responses;
 
 namespace MoverStateCalculator
 {
@@ -14,6 +16,7 @@ namespace MoverStateCalculator
         string FLAGS_xaya_rpc_url = "";
         bool fatalCheckPending = false;
         public XayaWrapper wrapper;
+        public XAYAClient client;
 
         public static XAYAConnector Instance;
 
@@ -72,6 +75,56 @@ namespace MoverStateCalculator
             Debug.Log(functionResult);
             yield return Ninja.JumpBack;
 
+        }
+
+        public void SubscribeForBlockUpdates()
+        {
+
+            StartCoroutine(WaitForChanges());
+        }
+
+        IEnumerator WaitForChangesInner()
+        {
+            while (true)
+            {
+                if (client.connected && wrapper != null)
+                {
+
+                    wrapper.xayaGameService.WaitForChange();
+                    GameStateResult actualState = wrapper.xayaGameService.GetCurrentState();
+
+                    if (actualState.gamestate != null)
+                    {
+                        GameState state = JsonConvert.DeserializeObject<GameState>(actualState.gamestate);
+
+                        MoveGUIAndGameController.Instance.state = state;
+                        MoveGUIAndGameController.Instance.needsRedraw = true;
+
+                        GetBlockResponse currentBlock = client.xayaService.GetBlock(actualState.blockhash);
+                        MoveGUIAndGameController.Instance.UpdateBlockSynch(currentBlock.Height);
+                    }
+                    else
+                    {
+                        Debug.LogError("Retuned state is not valid? We had some error with JSON");
+                    }
+                    yield return null;
+
+                }
+                else
+                {
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }
+        }
+
+        IEnumerator WaitForChanges()
+        {
+            /*We need to run this one on seperate thread,
+             else waitforchange will block all the input*/
+
+            Task task;
+            this.StartCoroutineAsync(WaitForChangesInner(), out task);
+            yield return StartCoroutine(task.Wait());
         }
 
         /* For some reason, issueing stop command might fail, 

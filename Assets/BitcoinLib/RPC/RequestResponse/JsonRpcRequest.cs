@@ -14,6 +14,7 @@ namespace BitcoinLib.RPC.RequestResponse
         {
             Id = id;
             Method = method;
+            jsonrpc = "2.0";
             Parameters = parameters?.ToList() ?? new List<object>();
         }
 
@@ -25,6 +26,9 @@ namespace BitcoinLib.RPC.RequestResponse
 
         [JsonProperty(PropertyName = "id", Order = 2)]
         public int Id { get; set; }
+
+        [JsonProperty(PropertyName = "jsonrpc", Order = 3)]
+        public string jsonrpc { get; set; }
 
         public byte[] GetBytes()
         {

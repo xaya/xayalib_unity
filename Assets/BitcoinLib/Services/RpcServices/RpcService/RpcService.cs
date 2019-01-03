@@ -11,6 +11,7 @@ using BitcoinLib.Responses;
 using BitcoinLib.RPC.Connector;
 using BitcoinLib.RPC.Specifications;
 using BitcoinLib.Services.Coins.Base;
+using MoverStateCalculator;
 using Newtonsoft.Json.Linq;
 
 namespace BitcoinLib.Services
@@ -686,6 +687,17 @@ namespace BitcoinLib.Services
         {
             return _rpcConnector.MakeRequest<List<GetNameListResponse>>(RpcMethods.name_list);
         }
+
+        public void WaitForChange()
+        {
+            _rpcConnector.MakeRequest<string>(RpcMethods.waitforchange);
+        }
+
+        public GameStateResult GetCurrentState()
+        {
+            return _rpcConnector.MakeRequest<GameStateResult>(RpcMethods.getcurrentstate);
+        }
+
 
     }
 }

@@ -17,9 +17,26 @@ namespace MoverStateCalculator
 	public class CallbackFunctions
 	{
     
-		public static string initialCallbackResult()
+		public static string initialCallbackResult(out int height, out string hashHex)
 		{
-			return "";         
+
+            if(MoveGUIAndGameController.Instance.chain_s == 0)
+            {
+                height = 125000;
+                hashHex = "2aed5640a3be8a2f32cdea68c3d72d7196a7efbfe2cbace34435a3eef97561f2";
+            }
+            else if (MoveGUIAndGameController.Instance.chain_s == 1)
+            {
+                height = 10000;
+                hashHex = "73d771be03c37872bc8ccd92b8acb8d7aa3ac0323195006fb3d3476784981a37";
+            }
+            else
+            {
+                height = 0;
+                hashHex = "6f750b36d22f1dc3d0a6e483af45301022646dfc3b3ba2187865f5a7d6d83ab1";
+            }
+
+                return "";         
 		}
 
 		public static string forwardCallbackResult(string oldState, string blockData, string undoData, out string newData)
@@ -33,8 +50,6 @@ namespace MoverStateCalculator
                 newData = "";
                 return "";
             }
-
-            MoveGUIAndGameController.Instance.UpdateBlockSynch((int)blockDataS["block"]["height"]);
 
 			if (state == null)
 			{
@@ -90,8 +105,6 @@ namespace MoverStateCalculator
 
                 p.dir = dir;
                 p.steps_left = steps;
-
-                MoveGUIAndGameController.Instance.needsRedraw = true;
             }
 
             foreach (var mi in state.players)
@@ -135,16 +148,9 @@ namespace MoverStateCalculator
                     p.dir = Direction.NONE;
 
                 }
-
-                MoveGUIAndGameController.Instance.needsRedraw = true;
             }
                     
 			undoData = JsonConvert.SerializeObject(undo);
-
-            //We can redraw our screen now, as we do it in main thread,
-            //Lets just fill vars and let GUI to pick up
-            MoveGUIAndGameController.Instance.state = state;
-
             newData = JsonConvert.SerializeObject(state);
             return undoData;
 		}
@@ -215,21 +221,15 @@ namespace MoverStateCalculator
 						p.steps_left = u.previous_steps_left;
 					}
 				}
-
-				foreach(string nm in playersToRemove)
-				{
-					state.players.Remove(nm);
-				}
-
-                //We can redraw our screen now, as we do it in main thread,
-                //Lets just fill vars and let GUI to pick up
-                MoveGUIAndGameController.Instance.state = state;
-                MoveGUIAndGameController.Instance.needsRedraw = true;
-
-                return JsonConvert.SerializeObject(state);
 			}
- 
-			return "";
-		}
+
+            foreach (string nm in playersToRemove)
+            {
+                state.players.Remove(nm);
+            }
+
+            return JsonConvert.SerializeObject(state);
+
+        }
 	}
 }

@@ -91,7 +91,9 @@ public class MoveGUIAndGameController : MonoBehaviour {
 
     void RedrawGameClient()
     {
-        Debug.Log("Redrawing GUI");
+        //Debug.Log("Redrawing GUI");
+
+        if (state.players == null) return;
 
         for(int s = 0; s < moverObjects.Count;s++)
         {
@@ -221,16 +223,19 @@ public class MoveGUIAndGameController : MonoBehaviour {
         }
     }
 
-
-    public void UpdateBlockSynch(int curVal)
+    public void CheckIfNeedsToConnectClient()
     {
-
-        if(totalBlock == 0 && !xayaClient.connected)
+        if (totalBlock == 0 && !xayaClient.connected)
         {
             //Lets grab client data
             //We have to run this on main thread;
             needToConnectClient = true;
         }
+    }
+
+
+    public void UpdateBlockSynch(int curVal)
+    {
 
         if(curVal > totalBlock)
         {

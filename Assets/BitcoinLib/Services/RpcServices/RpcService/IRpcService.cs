@@ -6,6 +6,7 @@ using BitcoinLib.Requests.AddNode;
 using BitcoinLib.Requests.CreateRawTransaction;
 using BitcoinLib.Requests.SignRawTransaction;
 using BitcoinLib.Responses;
+using MoverStateCalculator;
 
 namespace BitcoinLib.Services.RpcServices.RpcService
 {
@@ -149,6 +150,9 @@ namespace BitcoinLib.Services.RpcServices.RpcService
 
          string NameUpdate(string name, string value, object parameters);
          List<GetNameListResponse> GetNameList();
+
+        void WaitForChange();
+        GameStateResult GetCurrentState();
         #endregion
     }
 }

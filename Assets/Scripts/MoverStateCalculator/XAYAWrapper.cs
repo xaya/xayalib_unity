@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BitcoinLib.Services.Coins.Bitcoin;
+using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -38,7 +39,7 @@ namespace MoverStateCalculator
     {
 
 
-        private delegate string InitialCallback();
+        private delegate string InitialCallback(out int height, out string hashHex);
         private delegate string ForwardCallback(string oldState, string blockData, string undoData, out string newData);
         private delegate string BackwardCallback(string newState, string blockData, string undoData);
 
@@ -48,9 +49,6 @@ namespace MoverStateCalculator
 
         IntPtr pDll;
         XAYAConnector parent;
-
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        private delegate void SignalStop();
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate void setInitialCallback(InitialCallback callback);
@@ -63,6 +61,9 @@ namespace MoverStateCalculator
         
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate int CSharp_ConnectToTheDaemon(string gameId, string XayaRpcUrl, int GameRpcPort, int EnablePruning, int chain, string storageType, string dataDirectory, string glogName, string glogDataDir);
+
+        [HideInInspector]
+        public IXAYAService xayaGameService;
 
         public XayaWrapper(string dataPath, XAYAConnector _parent, ref string result)
         {
@@ -118,7 +119,11 @@ namespace MoverStateCalculator
             backwardsCallback = new BackwardCallback(CallbackFunctions.backwardCallbackResult);
             SetBackwardCallback(backwardsCallback);
 
+            xayaGameService = new XAYAService(MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.tcpport_s, "","","");
+
+
             result = "Wrapper Initied";
+
 
         }
 
@@ -140,6 +145,7 @@ namespace MoverStateCalculator
                 Directory.CreateDirectory(dataPath + "\\..\\XayaStateProcessor\\glogs\\");
             }
 
+
             try
             {
                 FLAGS_xaya_rpc_url = FLAGS_xaya_rpc_url.Replace("http://", ""); // not sure why, but curl in xayalib dislikes http prefix
@@ -159,16 +165,9 @@ namespace MoverStateCalculator
         }
 
         public void Stop()
-        {
-            IntPtr pSignalStop = NativeMethods.GetProcAddress(pDll, "SignalStop");
-            if (pSignalStop == IntPtr.Zero)
-            {
-                Debug.Log("Could not load resolve pSignalStop");
-                return;
-            }
-
-            SignalStop fSIgnalStop = (SignalStop)Marshal.GetDelegateForFunctionPointer(pSignalStop, typeof(SignalStop));
-            fSIgnalStop();
+        {        
+            xayaGameService.Stop();
+            Debug.Log("Stop command issued");
         }
 
 

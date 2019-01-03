@@ -56,7 +56,7 @@ namespace BitcoinLib.Services
                     //}
                 }
 
-                if (IgnoreConfigFiles && (string.IsNullOrWhiteSpace(DaemonUrl) || string.IsNullOrWhiteSpace(RpcUsername) || string.IsNullOrWhiteSpace(RpcPassword)))
+                if (IgnoreConfigFiles && (string.IsNullOrWhiteSpace(DaemonUrl)))
                 {
                     throw new Exception($"One or more required parameters, as defined in {GetType().Name}, were not found in the configuration file!");
                 }
@@ -440,9 +440,7 @@ namespace BitcoinLib.Services
                     throw new Exception("RpcRequestTimeoutInSeconds must be greater than zero");
                 }
 
-                if (string.IsNullOrWhiteSpace(DaemonUrl)
-                    || string.IsNullOrWhiteSpace(RpcUsername)
-                    || string.IsNullOrWhiteSpace(RpcPassword))
+                if (string.IsNullOrWhiteSpace(DaemonUrl))
                 {
                     throw new Exception($"One or more required parameters, as defined in {GetType().Name}, were not found in the configuration file!");
                 }

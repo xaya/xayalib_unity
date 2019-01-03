@@ -5,6 +5,5 @@ using UnityEngine.UI;
 
 public class MoverObject : MonoBehaviour
 {
-
     public Text moverName;
 }

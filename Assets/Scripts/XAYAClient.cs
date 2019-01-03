@@ -2,6 +2,8 @@
 using BitcoinLib.Services.Coins.Bitcoin;
 using System.Collections.Generic;
 using BitcoinLib.Responses;
+using MoverStateCalculator;
+using System.Collections;
 
 public class XAYAClient : MonoBehaviour 
 {
@@ -18,7 +20,11 @@ public class XAYAClient : MonoBehaviour
 
     public bool connected = false;
 
-    IXAYAService xayaService;
+    public XAYAConnector connector;
+
+    [HideInInspector]
+    public IXAYAService xayaService;
+
     public bool Connect()
     {
 
@@ -31,8 +37,14 @@ public class XAYAClient : MonoBehaviour
              * that once we are connect, then we are always fine
              */
 
+            connector.SubscribeForBlockUpdates();
+
             connected = true;
             return true;
+        }
+        else
+        {
+            Debug.LogError("Failed to connect with XAYAService");
         }
         return false;
     }

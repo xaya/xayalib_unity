@@ -28,14 +28,38 @@ namespace BitcoinLib.RPC.Connector
         {
             var jsonRpcRequest = new JsonRpcRequest(1, rpcMethod.ToString(), parameters);
             var webRequest = (HttpWebRequest) WebRequest.Create(_coinService.Parameters.SelectedDaemonUrl);
-            SetBasicAuthHeader(webRequest, _coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
-            webRequest.Credentials = new NetworkCredential(_coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
-            webRequest.ContentType = "application/json-rpc";
-            webRequest.Method = "POST";
-            webRequest.Proxy = null;
-            webRequest.Timeout = _coinService.Parameters.RpcRequestTimeoutInSeconds * GlobalConstants.MillisecondsInASecond;
-            var byteArray = jsonRpcRequest.GetBytes();
-            webRequest.ContentLength = jsonRpcRequest.GetBytes().Length;
+            byte[] byteArray;
+
+            if (rpcMethod == RpcMethods.stop) /* Dirty workaround to properly support json notification syntax, lets merge this into library later properly*/
+            {
+                var jsonRpcRequestNotification = new JsonRpcRequestNotification(rpcMethod.ToString(), parameters);
+                SetBasicAuthHeader(webRequest, _coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
+                webRequest.Credentials = new NetworkCredential(_coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
+
+                webRequest.ContentType = "application/json-rpc";
+                webRequest.Method = "POST";
+                webRequest.Proxy = null;
+                webRequest.Timeout = _coinService.Parameters.RpcRequestTimeoutInSeconds * GlobalConstants.MillisecondsInASecond;
+                byteArray = jsonRpcRequestNotification.GetBytes();
+                webRequest.ContentLength = jsonRpcRequestNotification.GetBytes().Length;
+            }
+            else
+            {
+                SetBasicAuthHeader(webRequest, _coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
+                webRequest.Credentials = new NetworkCredential(_coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
+
+                webRequest.ContentType = "application/json-rpc";
+                webRequest.Method = "POST";
+                webRequest.Proxy = null;
+                webRequest.Timeout = _coinService.Parameters.RpcRequestTimeoutInSeconds * GlobalConstants.MillisecondsInASecond;
+                byteArray = jsonRpcRequest.GetBytes();
+                webRequest.ContentLength = jsonRpcRequest.GetBytes().Length;
+            }
+
+            if (rpcMethod == RpcMethods.waitforchange) /* Dirty workaround to properly support json notification syntax, lets merge this into library later properly*/
+            {
+                webRequest.Timeout = int.MaxValue;
+            }
 
             try
             {
