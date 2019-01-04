@@ -2176,7 +2176,7 @@ MonoBehaviour:
   xayaConnector: {fileID: 427968013}
   host: {fileID: 931075796}
   hostport: {fileID: 407508230}
-  tcpport: {fileID: 1117411356}
+  gameport: {fileID: 1117411356}
   rpcuser: {fileID: 1364157340}
   rpcpassword: {fileID: 966826864}
   storage: {fileID: 1400276593}
@@ -2186,12 +2186,14 @@ MonoBehaviour:
   moveditance: {fileID: 81015946}
   host_s: 
   hostport_s: 
-  tcpport_s: 
+  gamehostport_s: 
   rpcuser_s: 
   rpcpassword_s: 
   storage_s: 0
   chain_s: 0
   needsRedraw: 0
+  totalBlock: 0
+  _sVal: 0
 --- !u!1 &454040824
 GameObject:
   m_ObjectHideFlags: 0

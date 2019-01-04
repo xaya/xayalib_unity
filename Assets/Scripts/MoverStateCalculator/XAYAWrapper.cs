@@ -118,8 +118,8 @@ namespace MoverStateCalculator
 
             backwardsCallback = new BackwardCallback(CallbackFunctions.backwardCallbackResult);
             SetBackwardCallback(backwardsCallback);
-
-            xayaGameService = new XAYAService(MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.tcpport_s, "","","");
+           
+            xayaGameService = new XAYAService(MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.gamehostport_s, "","","");
 
 
             result = "Wrapper Initied";
@@ -149,7 +149,7 @@ namespace MoverStateCalculator
             try
             {
                 FLAGS_xaya_rpc_url = FLAGS_xaya_rpc_url.Replace("http://", ""); // not sure why, but curl in xayalib dislikes http prefix
-                ConnectToTheDaemon_CSharp("mv", FLAGS_xaya_rpc_url, int.Parse(MoveGUIAndGameController.Instance.tcpport_s), -1, MoveGUIAndGameController.Instance.chain_s, MoveGUIAndGameController.Instance.GetStorageString(MoveGUIAndGameController.Instance.storage_s), dataPath + "\\..\\XayaStateProcessor\\database\\", "XayaGLOG", dataPath + "\\..\\XayaStateProcessor\\glogs\\");
+                ConnectToTheDaemon_CSharp("mv", FLAGS_xaya_rpc_url, int.Parse(MoveGUIAndGameController.Instance.gamehostport_s), -1, MoveGUIAndGameController.Instance.chain_s, MoveGUIAndGameController.Instance.GetStorageString(MoveGUIAndGameController.Instance.storage_s), dataPath + "\\..\\XayaStateProcessor\\database\\", "XayaGLOG", dataPath + "\\..\\XayaStateProcessor\\glogs\\");
             }
             catch (ThreadAbortException)
             {

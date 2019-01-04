@@ -6,8 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MoveGUIAndGameController : MonoBehaviour {
-
-
+  
     public RectTransform gameCanvas;
     public RectTransform sizeFitterHolder;
     public RectTransform bgImage;
@@ -26,7 +25,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
 
     public InputField host;
     public InputField hostport;
-    public InputField tcpport;
+    public InputField gameport;
     public InputField rpcuser;
     public InputField rpcpassword;
 
@@ -41,7 +40,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
     [HideInInspector]
     public string hostport_s;
     [HideInInspector]
-    public string tcpport_s;
+    public string gamehostport_s;
     [HideInInspector]
     public string rpcuser_s;
     [HideInInspector]
@@ -55,33 +54,33 @@ public class MoveGUIAndGameController : MonoBehaviour {
     public GameState state;
     [HideInInspector]
     public bool needsRedraw = false;
+    [HideInInspector]
+    public int totalBlock = 0;
+    [HideInInspector]
+    public int _sVal = 0;
 
     public static MoveGUIAndGameController Instance;
 
     private string nameSelected = "";
     private string directionSelected = "r";
     private string distanceSelected = "1";
-    private int totalBlock = 0;
-    private bool needToConnectClient = false;
-    private bool updateTotalBlockCount = false;
-    private bool updateSynchCounter = false;
-    private int _sVal = 0;
+   
+
     private int _sPVal = 0;
     List<string> nameList;
-    bool redrawNeverHappened = true; //when using database to store, not memory, need to redraw on first tick
 
     List<GameObject> moverObjects = new List<GameObject>();
 
     // Use this for initialization
     void Start ()
-    {
+    {   
         Instance = this;
 
         FillSettingsFromPlayerPrefs();
-
+        
         host.text = host_s;
         hostport.text = hostport_s;
-        tcpport.text = tcpport_s;
+        gameport.text = gamehostport_s;
         rpcuser.text = rpcuser_s;
         rpcpassword.text = rpcpassword_s;
 
@@ -91,7 +90,17 @@ public class MoveGUIAndGameController : MonoBehaviour {
 
     void RedrawGameClient()
     {
-        //Debug.Log("Redrawing GUI");
+        _sPVal = 0;
+
+        if (state != null)
+        {
+            if (state.players != null)
+            {
+                _sPVal = state.players.Count;
+            }
+        }
+
+        blockSynchCount.text = _sVal + "/" + totalBlock + "(Total players on the map: " + _sPVal + ")";
 
         if (state.players == null) return;
 
@@ -107,7 +116,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
         float leftX = -800;
         float rightX = 800;
         float pWidth = 40; //According to prefab image size
-        foreach (KeyValuePair<string, PlayerState> pDic in state.players)
+        foreach (KeyValuePair<string, PlayerState> pDic in state.players) // this is the xaya game state that we get info from to draw on the screen
         {
             GameObject player = GameObject.Instantiate<GameObject>(moverObjectPrefab);
             MoverObject pComponent = player.GetComponent<MoverObject>();
@@ -165,7 +174,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
     {
         host_s = PlayerPrefs.GetString("host", "http://127.0.0.1");
         hostport_s = PlayerPrefs.GetString("hostport", "8396");
-        tcpport_s = PlayerPrefs.GetString("tcpport", "8900");
+        gamehostport_s = PlayerPrefs.GetString("tcpport", "8900");
         rpcuser_s = PlayerPrefs.GetString("rpcuser", "xayagametest");
         rpcpassword_s = PlayerPrefs.GetString("rpcpassword", "xayagametest");
         storage_s = PlayerPrefs.GetInt("storage", 0);
@@ -192,7 +201,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
     {
         PlayerPrefs.SetString("host",host.text);
         PlayerPrefs.SetString("hostport", hostport.text);
-        PlayerPrefs.SetString("tcpport", tcpport.text);
+        PlayerPrefs.SetString("tcpport", gameport.text);
         PlayerPrefs.SetString("rpcuser", rpcuser.text);
         PlayerPrefs.SetString("rpcpassword", rpcpassword.text);
         PlayerPrefs.SetInt("storage", storage.value);
@@ -201,7 +210,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
 
         FillSettingsFromPlayerPrefs();
     }
-
+    // This is the "LAUNCH" button code. 
     public void OnButton_DaemonLaunch()
     {
         /* This is simplified example;
@@ -212,7 +221,7 @@ public class MoveGUIAndGameController : MonoBehaviour {
          * those
          */
 
-        if (btnLaunchText.text != "STOP")
+        if (btnLaunchText.text != "STOP") // This is the "LAUNCH" button.
         {
             xayaConnector.LaunchMoverStateProcessor();
             btnLaunchText.text = "STOP";
@@ -221,31 +230,6 @@ public class MoveGUIAndGameController : MonoBehaviour {
         {   
             xayaConnector.Disconnect();
         }
-    }
-
-    public void CheckIfNeedsToConnectClient()
-    {
-        if (totalBlock == 0 && !xayaClient.connected)
-        {
-            //Lets grab client data
-            //We have to run this on main thread;
-            needToConnectClient = true;
-        }
-    }
-
-
-    public void UpdateBlockSynch(int curVal)
-    {
-
-        if(curVal > totalBlock)
-        {
-            //We have to run this on main thread;
-            updateTotalBlockCount = true;
-            
-        }
-
-        updateSynchCounter = true;
-        _sVal = curVal;
     }
 
     public void LaunchAborted()
@@ -344,45 +328,10 @@ public class MoveGUIAndGameController : MonoBehaviour {
 
         return false;
     }
-
+  
     void Update()
     {
-        if(needToConnectClient && !xayaClient.connected)
-        {
-            if(ConnectClient())
-            {
-                needToConnectClient = false;
-            }
-        }
-        if(updateTotalBlockCount)
-        {
-            updateTotalBlockCount = false;
-            totalBlock = xayaClient.GetTotalBlockCount();
-        }
-
-        if(updateSynchCounter)
-        {
-            updateSynchCounter = false;
-            _sPVal = 0;
-
-            if(state != null)
-            {
-                if(state.players != null)
-                {
-                    _sPVal = state.players.Count;
-                }
-            }
-
-            if(redrawNeverHappened)
-            {
-                redrawNeverHappened = false;
-                needsRedraw = true;
-            }
-
-            blockSynchCount.text = _sVal + "/" + totalBlock + "(Total players on the map: " + _sPVal + ")";
-        }
-
-        if(needsRedraw)
+        if (needsRedraw)
         {
             needsRedraw = false;
             RedrawGameClient();

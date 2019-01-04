@@ -8,7 +8,6 @@ using BitcoinLib.Responses;
 
 namespace MoverStateCalculator
 {
-
     public class XAYAConnector : MonoBehaviour
     {
 
@@ -23,7 +22,7 @@ namespace MoverStateCalculator
         public void LaunchMoverStateProcessor()
         {
 
-            Instance = this;
+            Instance = this; 
             dPath = Application.dataPath;
             FLAGS_xaya_rpc_url = MoveGUIAndGameController.Instance.rpcuser_s + ":" + MoveGUIAndGameController.Instance.rpcpassword_s + "@" + MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.hostport_s;
             //Clean last session logs
@@ -58,13 +57,10 @@ namespace MoverStateCalculator
 
         IEnumerator DaemonAsync()
         {
-            //We keep DDLs inside Asset folder for Editor,
-            //hence here we resolve the path for it
-
             string functionResult = "";
-
+            
             wrapper = new XayaWrapper(dPath, this, ref functionResult);
-
+             
             yield return Ninja.JumpToUnity;
             Debug.Log(functionResult);
             yield return Ninja.JumpBack;
@@ -78,30 +74,30 @@ namespace MoverStateCalculator
         }
 
         public void SubscribeForBlockUpdates()
-        {
-
+        { 
             StartCoroutine(WaitForChanges());
         }
-
+       
         IEnumerator WaitForChangesInner()
         {
             while (true)
-            {
+            {   
                 if (client.connected && wrapper != null)
                 {
-
+                    
                     wrapper.xayaGameService.WaitForChange();
-                    GameStateResult actualState = wrapper.xayaGameService.GetCurrentState();
+                    GameStateResult actualState = wrapper.xayaGameService.GetCurrentState(); 
 
                     if (actualState.gamestate != null)
                     {
                         GameState state = JsonConvert.DeserializeObject<GameState>(actualState.gamestate);
-
+                       
                         MoveGUIAndGameController.Instance.state = state;
-                        MoveGUIAndGameController.Instance.needsRedraw = true;
-
+                        MoveGUIAndGameController.Instance.totalBlock = client.GetTotalBlockCount();
                         GetBlockResponse currentBlock = client.xayaService.GetBlock(actualState.blockhash);
-                        MoveGUIAndGameController.Instance.UpdateBlockSynch(currentBlock.Height);
+                        MoveGUIAndGameController.Instance._sVal = currentBlock.Height;
+
+                        MoveGUIAndGameController.Instance.needsRedraw = true;
                     }
                     else
                     {
@@ -121,7 +117,7 @@ namespace MoverStateCalculator
         {
             /*We need to run this one on seperate thread,
              else waitforchange will block all the input*/
-
+             // using Ninja here for threading help
             Task task;
             this.StartCoroutineAsync(WaitForChangesInner(), out task);
             yield return StartCoroutine(task.Wait());
@@ -141,7 +137,7 @@ namespace MoverStateCalculator
             Instance = null;
         }
 
-
+        // We check the glog files to see what the problem was and then we output the error to screen. No error handling in here.
         void WaitForFileAndCheck()
         {
             /* LETS EXTRACT TH INFO WE NEED FROM GLOG FILES*/
@@ -159,8 +155,8 @@ namespace MoverStateCalculator
                     {
                         var content = textReader.ReadToEnd();
                         string[] lines = content.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-                        MoveGUIAndGameController.Instance.ShowError(lines[3]);
-                        Debug.Log(lines[3]); // Wild guess, but seems like glog will keep error we ned right there always SO FAR
+                        MoveGUIAndGameController.Instance.ShowError(lines[3]); // This sends the error message to the Unity error message box.
+                        Debug.Log(lines[3]); // Wild guess, but seems like glog will keep error we ned right there always SO FAR // This goes to the Unity console.
                     }
                 }
 
@@ -175,7 +171,7 @@ namespace MoverStateCalculator
             //On the next update cycle
             //Main thread will pick up
             //the check we need
-            fatalCheckPending = true;
+            fatalCheckPending = true; // 
         }
 
         private void Update()

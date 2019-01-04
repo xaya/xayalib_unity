@@ -27,9 +27,9 @@ public class XAYAClient : MonoBehaviour
 
     public bool Connect()
     {
-
-        xayaService = new XAYAService(MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.hostport_s + "/wallet/game.dat", MoveGUIAndGameController.Instance.rpcuser_s, MoveGUIAndGameController.Instance.rpcpassword_s, "", 10);
        
+        xayaService = new XAYAService(MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.hostport_s + "/wallet/game.dat", MoveGUIAndGameController.Instance.rpcuser_s, MoveGUIAndGameController.Instance.rpcpassword_s, "", 10);
+    
         if (xayaService.GetConnectionCount() > 0)
         {
             /* We are not tracking connection drop or anything
@@ -78,7 +78,7 @@ public class XAYAClient : MonoBehaviour
     }
 
     public string ExecuteMove(string playername, string direction, string distance)
-	{
+	{   
          return xayaService.NameUpdate(playername, "{\"g\":{\"mv\":{\"d\":\"" + direction + "\",\"n\":" + distance + "}}}", new object()); 		
 	}
 }
