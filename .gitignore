@@ -42,3 +42,5 @@ Assets/StreamingAssets/crashlytics-build.properties
 XayaStateProcessor/glogs
 XayaStateProcessor/database
 packages/*
+
+*.meta
