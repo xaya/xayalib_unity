@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ExampleScript" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABIACEAAAAAAAgAAgAAACAAAQIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\CielaSpike\Thread Ninja\Example\ExampleScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoveGUIAndGameController">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GA4gGTECADAAQBBAAJaBAASYzACgAQAEUngigAQgACk=</HashCode>
+      <FileName>Assets\Scripts\MoveGUIAndGameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoverObject" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MoverObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAClient">
+    <Position X="12.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAJEAAAAAAAAAAAAAIAAAAAAAAEAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAConnector">
+    <Position X="10" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAABQIAAAAEAAAEAAAAAIAAAQAIEAEQAIABAAAgAI=</HashCode>
+      <FileName>Assets\Scripts\XAYAConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CielaSpike.Ninja" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\CielaSpike\Thread Ninja\Ninja.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CielaSpike.Task" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAABAgEAACACBRiIAQAAAAAIABABAIAAAA=</HashCode>
+      <FileName>Assets\CielaSpike\Thread Ninja\Task.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CielaSpike.ThreadNinjaMonoBehaviourExtensions" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\CielaSpike\Thread Ninja\ThreadNinjaMonoBehaviourExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.CallbackFunctions">
+    <Position X="4.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\CallbackFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.HelperFunctions">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAIAAAEAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\HelperFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.PlayerState">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAgAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\JSONClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.GameStateResultFromResponse">
+    <Position X="4.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAQQAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\JSONClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.GameState">
+    <Position X="0.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\JSONClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.PlayerUndo">
+    <Position X="2.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\JSONClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XAYAMoverGame.UndoData">
+    <Position X="2.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\JSONClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CielaSpike.TaskState" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAACAAAQAAAAAAAAAAAAAAAAAIAAACAAAAAAA=</HashCode>
+      <FileName>Assets\CielaSpike\Thread Ninja\TaskState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="XAYAMoverGame.Direction">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAABAAAAgAAAQAAAAAAAAYCAAAgAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\XAYAMoverGame\JSONClasses.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
