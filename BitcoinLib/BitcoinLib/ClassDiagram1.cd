@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BitcoinLib.Auxiliary.Encoders.ASCIIEncoder" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\Encoders\ASCIIEncoder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Auxiliary.Encoders.DataEncoder" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\Encoders\DataEncoder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Auxiliary.Encoders.Encoders" Collapsed="true">
+    <Position X="32" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAUAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\Encoders\DataEncoder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Auxiliary.Encoders.HexEncoder" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAAAAAAEAAAgIAAAAAAAAAAAACAAAAEAABAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\Encoders\HexEncoder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Auxiliary.GlobalConstants" Collapsed="true">
+    <Position X="30.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\GlobalConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Auxiliary.Hashing" Collapsed="true">
+    <Position X="32" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\Hashing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Auxiliary.UnixTime" Collapsed="true">
+    <Position X="28.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Auxiliary\UnixTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Base.CoinConstants&lt;T&gt;" Collapsed="true">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Base\CoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Services.CoinService" Collapsed="true">
+    <Position X="11.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DJIshyZBgIhLAYEkeWADBnKRsE4BTGYEoagBRUAIBMQ=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Base\CoinParameters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Bitcoin.BitcoinConstants" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Bitcoin\BitcoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Bitcoin.XAYAConstants" Collapsed="true">
+    <Position X="35.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\XAYA\XAYAConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Dallar.DallarConstants" Collapsed="true">
+    <Position X="37.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Dallar\DallarConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Dash.DashConstants" Collapsed="true">
+    <Position X="39" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Dash\DashConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Dogecoin.DogecoinConstants" Collapsed="true">
+    <Position X="30.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Dogecoin\DogecoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Litecoin.LitecoinConstants" Collapsed="true">
+    <Position X="37.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Litecoin\LitecoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Mogwaicoin.MogwaicoinConstants" Collapsed="true">
+    <Position X="26.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Mogwaicoin\MogwaicoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.CoinParameters.Smartcash.SmartcashConstants" Collapsed="true">
+    <Position X="25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Smartcash\SmartcashConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.RawTransactions.RawTransactionExcessiveFeeException" Collapsed="true">
+    <Position X="33.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\RawTransactions\RawTransactionExcessiveFeeException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.RawTransactions.RawTransactionInvalidAmountException" Collapsed="true">
+    <Position X="35.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\RawTransactions\RawTransactionInvalidAmountException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.Rpc.RpcException" Collapsed="true">
+    <Position X="39" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\Rpc\RpcException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.Rpc.RpcInternalServerErrorException" Collapsed="true">
+    <Position X="25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\Rpc\RpcInternalServerErrorException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.Rpc.RpcRequestTimeoutException" Collapsed="true">
+    <Position X="26.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\Rpc\RpcRequestTimeoutException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.Rpc.RpcResponseDeserializationException" Collapsed="true">
+    <Position X="28.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\Rpc\RpcResponseDeserializationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExceptionHandling.RpcExtenderService.GetAddressBalanceException" Collapsed="true">
+    <Position X="39" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExceptionHandling\RpcExtenderService\GetAddressBalanceException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExtensionMethods.CoinServiceExtensionMethods" Collapsed="true">
+    <Position X="28.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExtensionMethods\CoinServiceExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.ExtensionMethods.DecimalExtensionMethods" Collapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\ExtensionMethods\DecimalExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Requests.CreateRawTransaction.CreateRawTransactionInput" Collapsed="true">
+    <Position X="32" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>BitcoinLib\Requests\CreateRawTransaction\CreateRawTransactionInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Requests.CreateRawTransaction.CreateRawTransactionOutput" Collapsed="true">
+    <Position X="33.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Requests\CreateRawTransaction\CreateRawTransactionOutput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Requests.CreateRawTransaction.CreateRawTransactionRequest" Collapsed="true">
+    <Position X="35.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAAAAAABACCAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Requests\CreateRawTransaction\CreateRawTransactionRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Requests.SignRawTransaction.SigHashType" Collapsed="true">
+    <Position X="33.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAgAAACAEIAgAAAAQIAAAAEAEAE=</HashCode>
+      <FileName>BitcoinLib\Requests\SignRawTransaction\SigHashType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Requests.SignRawTransaction.SignRawTransactionInput" Collapsed="true">
+    <Position X="35.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAABAAAAAAAAAQgAAAAA=</HashCode>
+      <FileName>BitcoinLib\Requests\SignRawTransaction\SignRawTransactionInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Requests.SignRawTransaction.SignRawTransactionRequest" Collapsed="true">
+    <Position X="37.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAACAAAAAAAAAEAAAAAQAAAAACgAAAAA=</HashCode>
+      <FileName>BitcoinLib\Requests\SignRawTransaction\SignRawTransactionRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.CreateMultiSigResponse" Collapsed="true">
+    <Position X="30.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\CreateMultiSigResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.DecodeRawTransactionResponse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAEAAAIAAAAAAAABAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\DecodeRawTransactionResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BitcoinLib.Responses.DecodeScriptResponse" Collapsed="true">
+    <Position X="28.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\DecodeScriptResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.EstimateSmartFeeResponse" Collapsed="true">
+    <Position X="33.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\EstimateSmartFeeResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetAddedNodeInfoResponse" Collapsed="true">
+    <Position X="37.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetAddedNodeInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.NodeAddress" Collapsed="true">
+    <Position X="30.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetAddedNodeInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetBlockchainInfoResponse" Collapsed="true">
+    <Position X="25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAEAAAIAAAAAQAAAAAgECAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetBlockchainInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetBlockResponse" Collapsed="true">
+    <Position X="26.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAQQBQIAgQAAAAAhAQAAAAAAAAAAAAAAAAAQCQA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetBlockResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetBlockTemplateResponse" Collapsed="true">
+    <Position X="30.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IACAAAAQJQAAABACAAAAACACAAAAAAAAAAAAAACABBQ=</HashCode>
+      <FileName>BitcoinLib\Responses\GetBlockTemplateResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetBlockTemplateCoinbaseAux" Collapsed="true">
+    <Position X="28.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetBlockTemplateResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetBlockTemplateTransaction" Collapsed="true">
+    <Position X="32" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAgAAAACAAAAAAAABAACAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetBlockTemplateResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetChainTipsResponse" Collapsed="true">
+    <Position X="33.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAEBAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetChainTipsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetFundRawTransactionResponse" Collapsed="true">
+    <Position X="35.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAggAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetFundRawTransactionResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetInfoResponse" Collapsed="true">
+    <Position X="37.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAEAAIECAAAAQAAAAgAAAAAAAQAAAAAAAACACACQQA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetMemPoolInfoResponse" Collapsed="true">
+    <Position X="39" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetMemPoolInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetMiningInfoResponse" Collapsed="true">
+    <Position X="25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQCEAAAAAEAAAQIAAAAAAAAAAAAAACAAAAAAAEACAAE=</HashCode>
+      <FileName>BitcoinLib\Responses\GetMiningInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetNameListResponse" Collapsed="true">
+    <Position X="26.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAQAAAAAAAABAAIEACAAQAAAAAQAAAI=</HashCode>
+      <FileName>BitcoinLib\Responses\GetNameListResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GameStateResult" Collapsed="true">
+    <Position X="35.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAQQAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetNameListResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetNetTotalsResponse" Collapsed="true">
+    <Position X="28.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIIAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetNetTotalsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetNetworkInfoResponse" Collapsed="true">
+    <Position X="30.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAACAAAAAAAAAAQAAAAAAAAAAAAgAgACACAEQAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetNetworkInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.LocalAddress" Collapsed="true">
+    <Position X="39" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAACAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetNetworkInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.Network" Collapsed="true">
+    <Position X="28.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAACAAAAAAAAAAAAAQAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetNetworkInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetPeerInfoResponse" Collapsed="true">
+    <Position X="32" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAADIAAQAAgAAAEABAAEACAEQAAAAIACABAAIAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetPeerInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetRawMemPoolResponse" Collapsed="true">
+    <Position X="33.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetRawMemPoolResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetRawMemPoolVerboseResponse" Collapsed="true">
+    <Position X="35.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAhAAgAAAAAAAAAABAAAAACAAAAAAAAQA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetRawMemPoolResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetRawTransactionResponse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAEgBAIAAAQAAAABAAAAAAAAAAkAAAQA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetRawTransactionResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetTransactionResponse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAgghQAABAQCAAABAAAAAAAAAAEAAAQA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetTransactionResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetTransactionResponseDetails" Collapsed="true">
+    <Position X="25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAgAAAAAACAAAAAAAACAAAAAgAACEA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetTransactionResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetTxOutSetInfoResponse" Collapsed="true">
+    <Position X="26.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYCAAAgABAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetTxOutSetInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.GetWalletInfoResponse" Collapsed="true">
+    <Position X="28.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAIAAgAAABAAAEEAAAAAAAAACAAAQA=</HashCode>
+      <FileName>BitcoinLib\Responses\GetWalletInfoResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ListAddressGroupingsResponse" Collapsed="true">
+    <Position X="25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAAAAAAAAEA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListAddressGroupingsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ListReceivedByAccountResponse" Collapsed="true">
+    <Position X="28.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListReceivedByAccountResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ListReceivedByAddressResponse" Collapsed="true">
+    <Position X="30.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAQCAAAAAAAACAAAAAAAAAEA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListReceivedByAddressResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ListSinceBlockResponse" Collapsed="true">
+    <Position X="32" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListSinceBlockResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.TransactionSinceBlock" Collapsed="true">
+    <Position X="26.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAgAhQAABAQCAAABIAAACAAAAAkAACUA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListSinceBlockResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ListTransactionsResponse" Collapsed="true">
+    <Position X="33.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEEAAAAgAhQAABAQCAAIBAAAACAAAAAkAACUA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListTransactionsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ListUnspentResponse" Collapsed="true">
+    <Position X="35.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAgAAQCAAABAAAACAAAAQgAAAEA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListUnspentResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.SignRawTransactionResponse" Collapsed="true">
+    <Position X="39" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\SignRawTransactionResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.ValidateAddressResponse" Collapsed="true">
+    <Position X="30.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAoAAAAAAAAAAAACAAAAAACAAEA=</HashCode>
+      <FileName>BitcoinLib\Responses\ValidateAddressResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.SharedComponents.Vin" Collapsed="true">
+    <Position X="32" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAABAAAABAAAAAAAAAAgEAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\SharedComponents\Vin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.SharedComponents.ScriptSig" Collapsed="true">
+    <Position X="32" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\SharedComponents\Vin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.SharedComponents.Vout" Collapsed="true">
+    <Position X="33.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQBAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\SharedComponents\Vout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Responses.SharedComponents.ScriptPubKey" Collapsed="true">
+    <Position X="30.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAgAAAAAAAAAAAAAQAAAAQAAEAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\SharedComponents\Vout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.RPC.Connector.RawRpcConnector" Collapsed="true">
+    <Position X="32" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\RPC\Connector\RawRpcConnector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.RPC.Connector.RpcConnector" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAA=</HashCode>
+      <FileName>BitcoinLib\RPC\Connector\RpcConnector.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BitcoinLib.RPC.RequestResponse.JsonRpcError" Collapsed="true">
+    <Position X="33.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>BitcoinLib\RPC\RequestResponse\JsonRpcError.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.RPC.RequestResponse.JsonRpcRequest" Collapsed="true">
+    <Position X="35.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAABgAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\RPC\RequestResponse\JsonRpcRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.RPC.RequestResponse.JsonRpcRequestNotification" Collapsed="true">
+    <Position X="37.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAABgAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\RPC\RequestResponse\JsonRpcRequestNotification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.RPC.RequestResponse.JsonRpcResponse&lt;T&gt;" Collapsed="true">
+    <Position X="39" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\RPC\RequestResponse\JsonRpcResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Bitcoin.XAYAService" Collapsed="true">
+    <Position X="21.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Bitcoin\BitcoinService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Bitcoin.BitcoinService" Collapsed="true">
+    <Position X="3.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\XAYA\XAYAService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Cryptocoin.CryptocoinService" Collapsed="true">
+    <Position X="6" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Cryptocoin\CryptocoinService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Dallar.DallarService" Collapsed="true">
+    <Position X="10.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Dallar\DallarService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Dash.DashService" Collapsed="true">
+    <Position X="12.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Dash\DashService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Dogecoin.DogecoinService" Collapsed="true">
+    <Position X="17.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Dogecoin\DogecoinService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Litecoin.LitecoinService" Collapsed="true">
+    <Position X="1.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Litecoin\LitecoinService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Mogwaicoin.MogwaicoinService" Collapsed="true">
+    <Position X="8.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAABAAAAAAAAAAAAAAAAAAAAgAAAAAAAEAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Mogwaicoin\MogwaicoinService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Mogwaicoin.MirrorAddressResponse" Collapsed="true">
+    <Position X="25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAQAAAAAAAAsAAAAAAAAAAgACAAIAAACAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Mogwaicoin\MogwaicoinService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Mogwaicoin.ListMirrorTransactionsResponse" Collapsed="true">
+    <Position X="26.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAgAhAAABAQCAAQBAACACAAAAAkAACQA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Mogwaicoin\MogwaicoinService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Sarcoin.SarcoinService" Collapsed="true">
+    <Position X="15" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Sarcoin\SarcoinService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BitcoinLib.Services.Coins.Smartcash.SmartcashService" Collapsed="true">
+    <Position X="19.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Smartcash\SmartcashService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="BitcoinLib.CoinParameters.Base.ICoinParameters" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Base\ICoinParameters.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Bitcoin.IBitcoinConstants" Collapsed="true">
+    <Position X="5.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Bitcoin\IBitcoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Bitcoin.IXAYAConstants" Collapsed="true">
+    <Position X="14.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\XAYA\IXAYAConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Dallar.IDallarConstants" Collapsed="true">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Dallar\IDallarConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Dash.IDashConstants" Collapsed="true">
+    <Position X="5.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Dash\IDashConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Dogecoin.IDogecoinConstants" Collapsed="true">
+    <Position X="17.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Dogecoin\IDogecoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Litecoin.ILitecoinConstants" Collapsed="true">
+    <Position X="20.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Litecoin\ILitecoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Mogwaicoin.IMogwaicoinConstants" Collapsed="true">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Mogwaicoin\IMogwaicoinConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.CoinParameters.Smartcash.ISmartcashConstants" Collapsed="true">
+    <Position X="22.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\CoinParameters\Smartcash\ISmartcashConstants.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Responses.Bridges.ITransactionResponse" Collapsed="true">
+    <Position X="26.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\Bridges\ITransactionResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.RPC.Connector.IRpcConnector" Collapsed="true">
+    <Position X="25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\RPC\Connector\IRpcConnector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Base.ICoinService" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Base\ICoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Bitcoin.IBitcoinService" Collapsed="true">
+    <Position X="8.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Bitcoin\IBitcoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Bitcoin.IXAYAService" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\XAYA\IXAYAService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Cryptocoin.ICryptocoinService" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Cryptocoin\ICryptocoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Dallar.IDallarService" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Dallar\IDallarService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Dash.IDashService" Collapsed="true">
+    <Position X="8.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Dash\IDashService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Dogecoin.IDogecoinService" Collapsed="true">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Dogecoin\IDogecoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Litecoin.ILitecoinService" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Litecoin\ILitecoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Mogwaicoin.IMogwaicoinService" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Mogwaicoin\IMogwaicoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Sarcoin.ISarcoinService" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Sarcoin\ISarcoinService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.Coins.Smartcash.ISmartcashService" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Services\Coins\Smartcash\ISmartcashService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.RpcServices.RpcExtenderService.IRpcExtenderService" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAgAAAAgAAIAAEAAAAAAAMEgACAAEAAABAAAAAIA=</HashCode>
+      <FileName>BitcoinLib\Services\RpcServices\RpcExtenderService\IRpcExtenderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BitcoinLib.Services.RpcServices.RpcService.IRpcService" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DJIkhSZBgIBLAQEkaWADBnKRkA4BRGYEoSgARUAIBEQ=</HashCode>
+      <FileName>BitcoinLib\Services\RpcServices\RpcService\IRpcService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BitcoinLib.Requests.AddNode.NodeAction" Collapsed="true">
+    <Position X="25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>BitcoinLib\Requests\AddNode\NodeAction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BitcoinLib.Responses.TransactionSinceBlockCategory" Collapsed="true">
+    <Position X="30.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAEAAAAAA=</HashCode>
+      <FileName>BitcoinLib\Responses\ListSinceBlockResponse.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BitcoinLib.RPC.Specifications.RpcErrorCode" Collapsed="true">
+    <Position X="26.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgABAAgAggAgAAAigkAoAABUEYwAAABRQAEAAKAOCI=</HashCode>
+      <FileName>BitcoinLib\RPC\Specifications\RpcErrorCode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BitcoinLib.RPC.Specifications.RpcMethods" Collapsed="true">
+    <Position X="28.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>yAWAhRmBABBDmJCEhEQCwOtRIe0hQccE1ABABUpoNG0=</HashCode>
+      <FileName>BitcoinLib\RPC\Specifications\RpcMethods.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
