@@ -163,7 +163,7 @@ namespace XAYAMoverGame
 
                 bool undoIt = false;
 
-                if (undo != null)
+                if (undo.players != null)
                 {
                     undoIt = undo.players.ContainsKey(name);
 
@@ -201,7 +201,7 @@ namespace XAYAMoverGame
                     p.y -= dy;
                 }
 
-                if (undo != null)
+                if (undo.players != null)
                 {
                     if (undoIt)
                     {

@@ -6,6 +6,7 @@ using System.Threading;
 
 namespace XAYAWrapper
 {
+
     static class NativeMethods
     {
         [DllImport("kernel32.dll")]
@@ -35,6 +36,8 @@ namespace XAYAWrapper
 
     public class XayaWrapper
     {
+
+
         public delegate string InitialCallback(out int height, out string hashHex);
         public delegate string ForwardCallback(string oldState, string blockData, string undoData, out string newData);
         public delegate string BackwardCallback(string newState, string blockData, string undoData);
@@ -59,21 +62,20 @@ namespace XAYAWrapper
 
         public IXAYAService xayaGameService;
 
-
-        public XayaWrapper(string dataPath, string host_s, string gamehostport_s,  ref string result, InitialCallback inCal, ForwardCallback forCal, BackwardCallback backCal)
+        public XayaWrapper(string dllDirectoryPath, string host_s, string gamehostport_s,  ref string result, InitialCallback inCal, ForwardCallback forCal, BackwardCallback backCal)
         {
-            if(!NativeMethods.SetDllDirectory(dataPath + "\\..\\XayaStateProcessor\\"))
+            if(!NativeMethods.SetDllDirectory(dllDirectoryPath))
             {
                 result = "Could not set dll directory";
                 return;
             }
 
-            pDll = NativeMethods.LoadLibrary(dataPath.Replace("/","\\") + "\\..\\XayaStateProcessor\\libxayawrap.dll");
+            pDll = NativeMethods.LoadLibrary(dllDirectoryPath + "libxayawrap.dll");
             
 
             if (pDll == IntPtr.Zero)
             {
-                result = "Could not load " + dataPath.Replace("/", "\\") + "\\..\\XayaStateProcessor\\libxayawrap.dll";
+                result = "Could not load " + dllDirectoryPath + "libxayawrap.dll";
                 return;
             }
 
@@ -113,11 +115,13 @@ namespace XAYAWrapper
            
             xayaGameService = new XAYAService(host_s + ":" + gamehostport_s, "","","");
 
-            result = "Wrapper Initialised";
+
+            result = "Wrapper Initied";
+
+
         }
 
-
-        public string Connect(string dataPath, string FLAGS_xaya_rpc_url, string gamehostport_s, string chain_s, string storage_s, string gamenamespace, string databasePath, string glogsPath)
+        public string Connect(string FLAGS_xaya_rpc_url, string gamehostport_s, string chain_s, string storage_s, string gamenamespace, string databasePath, string glogsPath)
         {
             IntPtr pDaemonConnect = NativeMethods.GetProcAddress(pDll, "CSharp_ConnectToTheDaemon");
             if (pDaemonConnect == IntPtr.Zero)
@@ -127,13 +131,15 @@ namespace XAYAWrapper
 
             CSharp_ConnectToTheDaemon ConnectToTheDaemon_CSharp = (CSharp_ConnectToTheDaemon)Marshal.GetDelegateForFunctionPointer(pDaemonConnect, typeof(CSharp_ConnectToTheDaemon));
 
+            //Storage type can be: "memory", or "lmdb", or "sqlite"
+            //For types other them memory dataDirectory needs to be set
+
             if (!Directory.Exists(glogsPath))
             {
                 Directory.CreateDirectory(glogsPath);
             }
 
-            // Storage type can be: "memory", "lmdb", or "sqlite".
-            // For types other than memory, dataDirectory must be set.
+
             try
             {
                 FLAGS_xaya_rpc_url = FLAGS_xaya_rpc_url.Replace("http://", ""); // not sure why, but curl in xayalib dislikes http prefix
@@ -141,19 +147,19 @@ namespace XAYAWrapper
             }
             catch (ThreadAbortException)
             {
+
                 Thread.ResetAbort();
             }
 
-            // This we be blocked by the DLL until the "Stop" command is issued.
+            //This we be blocked by dll until "stop" command is issued
             ShutdownDaemon();
-            return "Done: Wrapper connected.";
+            return "Done";
         }
-
 
         public void Stop()
         {        
             xayaGameService.Stop();
-            Console.Write("Stop command issued.");
+            Console.Write("Stop command issued");
         }
 
 
@@ -168,5 +174,6 @@ namespace XAYAWrapper
                 pDll = IntPtr.Zero;
             }
         }
+
     }
 }

@@ -5,11 +5,12 @@ using System.IO;
 using System;
 using Newtonsoft.Json;
 using BitcoinLib.Responses;
-using XAYAWrapper;
 using XAYAMoverGame;
+using XAYAWrapper;
 
 public class XAYAConnector : MonoBehaviour
 {
+
     string dPath = "";
     string FLAGS_xaya_rpc_url = "";
     bool fatalCheckPending = false;
@@ -20,11 +21,11 @@ public class XAYAConnector : MonoBehaviour
 
     public void LaunchMoverStateProcessor()
     {
+
         Instance = this;
         dPath = Application.dataPath;
         FLAGS_xaya_rpc_url = MoveGUIAndGameController.Instance.rpcuser_s + ":" + MoveGUIAndGameController.Instance.rpcpassword_s + "@" + MoveGUIAndGameController.Instance.host_s + ":" + MoveGUIAndGameController.Instance.hostport_s;
-        
-        // Clean up the log files from the last session. This is from glog.
+        //Clean last session logs
         if (Directory.Exists(dPath + "\\..\\XayaStateProcessor\\glogs\\"))
         {
             DirectoryInfo di = new DirectoryInfo(dPath + "\\..\\XayaStateProcessor\\glogs\\");
@@ -37,8 +38,9 @@ public class XAYAConnector : MonoBehaviour
         StartCoroutine(StartEnum());
     }
 
-    // We run the daemon as coroutine on a seperate thread, 
-    // because it will block the Unity main thread completely
+    /* We run daemon as coroutine on seperate thread, 
+     * because else it will block the Unity main thread 
+     * completely */
     IEnumerator StartEnum()
     {
         Task task;
@@ -50,19 +52,20 @@ public class XAYAConnector : MonoBehaviour
             MoveGUIAndGameController.Instance.ShowError(task.Exception.ToString());
             Debug.LogError(task.Exception.ToString());
         }
+
     }
 
     IEnumerator DaemonAsync()
     {
         string functionResult = "";
 
-        wrapper = new XayaWrapper(dPath, MoveGUIAndGameController.Instance.host_s, MoveGUIAndGameController.Instance.gamehostport_s, ref functionResult, CallbackFunctions.initialCallbackResult, CallbackFunctions.forwardCallbackResult,CallbackFunctions.backwardCallbackResult);
+        wrapper = new XayaWrapper(dPath + "\\..\\XayaStateProcessor\\", MoveGUIAndGameController.Instance.host_s, MoveGUIAndGameController.Instance.gamehostport_s, ref functionResult, CallbackFunctions.initialCallbackResult, CallbackFunctions.forwardCallbackResult, CallbackFunctions.backwardCallbackResult);
 
         yield return Ninja.JumpToUnity;
         Debug.Log(functionResult);
         yield return Ninja.JumpBack;
 
-        functionResult = wrapper.Connect(dPath, FLAGS_xaya_rpc_url, MoveGUIAndGameController.Instance.gamehostport_s, MoveGUIAndGameController.Instance.chain_s.ToString(), MoveGUIAndGameController.Instance.GetStorageString(MoveGUIAndGameController.Instance.storage_s), "mv", dPath + "\\..\\XayaStateProcessor\\database\\", dPath + "\\..\\XayaStateProcessor\\glogs\\" );
+        functionResult = wrapper.Connect(FLAGS_xaya_rpc_url, MoveGUIAndGameController.Instance.gamehostport_s, MoveGUIAndGameController.Instance.chain_s.ToString(), MoveGUIAndGameController.Instance.GetStorageString(MoveGUIAndGameController.Instance.storage_s), "mv", dPath + "\\..\\XayaStateProcessor\\database\\", dPath + "\\..\\XayaStateProcessor\\glogs\\");
 
         yield return Ninja.JumpToUnity;
         Debug.Log(functionResult);
@@ -71,6 +74,7 @@ public class XAYAConnector : MonoBehaviour
         Debug.Log("Check if fatal?");
 
         CheckIfFatalError();
+
     }
 
     public void SubscribeForBlockUpdates()
@@ -84,34 +88,36 @@ public class XAYAConnector : MonoBehaviour
         {
             if (client.connected && wrapper != null)
             {
+
                 wrapper.xayaGameService.WaitForChange();
 
                 GameStateResult actualState = wrapper.xayaGameService.GetCurrentState();
 
                 if (actualState != null)
                 {
-                        if (actualState.gamestate != null)
-                        {
-                            GameState state = JsonConvert.DeserializeObject<GameState>(actualState.gamestate);
+                    if (actualState.gamestate != null)
+                    {
+                        GameState state = JsonConvert.DeserializeObject<GameState>(actualState.gamestate);
 
-                            MoveGUIAndGameController.Instance.state = state;
-                            MoveGUIAndGameController.Instance.totalBlock = client.GetTotalBlockCount();
-                            var currentBlock = client.xayaService.GetBlock(actualState.blockhash);
-                            MoveGUIAndGameController.Instance._sVal = currentBlock.Height;
+                        MoveGUIAndGameController.Instance.state = state;
+                        MoveGUIAndGameController.Instance.totalBlock = client.GetTotalBlockCount();
+                        var currentBlock = client.xayaService.GetBlock(actualState.blockhash);
+                        MoveGUIAndGameController.Instance._sVal = currentBlock.Height;
 
-                            MoveGUIAndGameController.Instance.needsRedraw = true;
-                        }
-                        else
-                        {
-                            Debug.LogError("Returned state is not valid? We had a JSON error.");
-                        }
+                        MoveGUIAndGameController.Instance.needsRedraw = true;
+                    }
+                    else
+                    {
+                        Debug.LogError("Retuned state is not valid? We had some error with JSON");
+                    }
 
                     yield return null;
                 }
                 else
                 {
-                    Debug.LogError("actualState is null.");
+                    Debug.LogError("actualState is null");
                 }
+
             }
             else
             {
@@ -122,14 +128,17 @@ public class XAYAConnector : MonoBehaviour
 
     IEnumerator WaitForChanges()
     {
-        // We need to run this one on seperate thread because waitforchange will block all input
-        // We are using Ciela Spike's Thread Ninja here for threading help.
+        /*We need to run this one on seperate thread,
+         else waitforchange will block all the input*/
+        // using Ninja here for threading help
         Task task;
         this.StartCoroutineAsync(WaitForChangesInner(), out task);
         yield return StartCoroutine(task.Wait());
     }
 
-    // Issuing the Stop command might fail, so we run it in a loop to make sure it succeedes 
+    /* For some reason, issueing stop command might fail, 
+     * so we ar running it in the loop to make sure it 
+     * succeedes */
     void OnApplicationQuit()
     {
         Disconnect();
@@ -141,15 +150,17 @@ public class XAYAConnector : MonoBehaviour
         Instance = null;
     }
 
-    // We check the glog files to see what the problem was and then we output the error to the screen. 
-    // No error handling in here.
+    // We check the glog files to see what the problem was and then we output the error to screen. No error handling in here.
     void WaitForFileAndCheck()
     {
-        // We extract the info we need from the glog files.
+        /* LETS EXTRACT TH INFO WE NEED FROM GLOG FILES*/
         string[] files = Directory.GetFiles(dPath + "\\..\\XayaStateProcessor\\glogs\\");
         for (int s = 0; s < files.Length; s++)
         {
-            // Glog might keep access control, so we must check using shared access.
+            /* Glog might keep access control,
+            *  so we must check using shared
+            * access */
+
             if (files[s].Contains("FATAL"))
             {
                 using (var fileStream = new FileStream(files[s], FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -158,7 +169,7 @@ public class XAYAConnector : MonoBehaviour
                     var content = textReader.ReadToEnd();
                     string[] lines = content.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
                     MoveGUIAndGameController.Instance.ShowError(lines[3]); // This sends the error message to the Unity error message box.
-                    Debug.Log(lines[3]); // Glog seems to keep the error we need right here at '3'. 
+                    Debug.Log(lines[3]); // Wild guess, but seems like glog will keep error we ned right there always SO FAR // This goes to the Unity console.
                 }
             }
 
@@ -167,8 +178,12 @@ public class XAYAConnector : MonoBehaviour
 
     public void CheckIfFatalError()
     {
-        // We must do it this way, as we need to check on the Main Unity thread.
-        // On the next update cycle, the Main thread will pick up the check we need.
+        //We must to it this way,
+        //as we need to check on
+        //main Unity thread
+        //On the next update cycle
+        //Main thread will pick up
+        //the check we need
         fatalCheckPending = true; // 
     }
 
@@ -191,4 +206,5 @@ public class XAYAConnector : MonoBehaviour
             StartCoroutine(TryAndStop());
         }
     }
+
 }
