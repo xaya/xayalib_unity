@@ -116,7 +116,7 @@ namespace XAYAWrapper
             xayaGameService = new XAYAService(host_s + ":" + gamehostport_s, "","","");
 
 
-            result = "Wrapper Initied";
+            result = "Wrapper Initialised";
 
 
         }
