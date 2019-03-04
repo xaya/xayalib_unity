@@ -99,12 +99,16 @@
     <Compile Include="BitcoinLib\Responses\GetInfoResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetMemPoolInfoResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetMiningInfoResponse.cs" />
+    <Compile Include="BitcoinLib\Responses\GetNameHistoryResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetNameListResponse.cs" />
+    <Compile Include="BitcoinLib\Responses\GetNamePendingResponse.cs" />
+    <Compile Include="BitcoinLib\Responses\GetNameScanResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetNetTotalsResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetNetworkInfoResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetPeerInfoResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetRawMemPoolResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetRawTransactionResponse.cs" />
+    <Compile Include="BitcoinLib\Responses\GetShowNameResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetTransactionResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetTxOutSetInfoResponse.cs" />
     <Compile Include="BitcoinLib\Responses\GetWalletInfoResponse.cs" />

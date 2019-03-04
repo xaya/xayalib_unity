@@ -128,8 +128,8 @@ namespace BitcoinLib.Services
                     }
 
                     CoinShortName = "CHI";
-                    CoinLongName = "XAYA";
-                    IsoCurrencyCode = "CHI";
+                    CoinLongName = "XAYA coin";
+                    IsoCurrencyCode = "XCHI";
 
                     TransactionSizeBytesContributedByEachInput = 148;
                     TransactionSizeBytesContributedByEachOutput = 34;
@@ -142,11 +142,11 @@ namespace BitcoinLib.Services
                     MinimumTransactionFeeInCoins = 0.0001M;
                     MinimumNonDustTransactionAmountInCoins = 0.0000543M;
 
-                    TotalCoinSupplyInCoins = 21000000;
-                    EstimatedBlockGenerationTimeInMinutes = 10;
+                    TotalCoinSupplyInCoins = 77303933;
+                    EstimatedBlockGenerationTimeInMinutes = 0.5;
                     BlocksHighestPriorityTransactionsReservedSizeInBytes = 50000;
 
-                    BaseUnitName = "Satoshi";
+                    BaseUnitName = "Chitoshi";
                     BaseUnitsPerCoin = 100000000;
                     CoinsPerBaseUnit = 0.00000001M;
                 }

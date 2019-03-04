@@ -120,6 +120,12 @@ namespace BitcoinLib.RPC.Specifications
         //XAYA
         name_update,
         name_list,
+        name_register,
+        name_show,
+        name_pending,
+        name_scan,
+        sendtoname,
+        name_history,
         waitforchange,
         getcurrentstate
     }

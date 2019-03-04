@@ -9,9 +9,9 @@ namespace BitcoinLib.CoinParameters.XAYA
     {
         public sealed class Constants : CoinConstants<Constants>
         {
-            public readonly int OneBitcoinInSatoshis = 100000000;
-            public readonly decimal OneSatoshiInBTC = 0.00000001M;
-            public readonly int SatoshisPerBitcoin = 100000000;
+            public readonly int OneCHIInChitoshis = 100000000;
+            public readonly decimal OneChitoshiInCHI = 0.00000001M;
+            public readonly int ChitoshisPerChi = 100000000;
             public readonly string Symbol = "CHI";
 
             #region Custom constructor example - commented out on purpose

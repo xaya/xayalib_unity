@@ -11,7 +11,9 @@ using BitcoinLib.Responses;
 using BitcoinLib.RPC.Connector;
 using BitcoinLib.RPC.Specifications;
 using BitcoinLib.Services.Coins.Base;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 namespace BitcoinLib.Services
 {
@@ -676,26 +678,230 @@ namespace BitcoinLib.Services
             return Parameters.CoinLongName;
         }
 
-
+        /// <summary>
+        /// XAYA: Updates the value for a name.
+        /// </summary>
+        /// <param name="name">The name including the namespace, e.g. "p/xaya".</param>
+        /// <param name="value">The value to update. Must be valid JSON.</param>
+        /// <param name="parameters">Any parameters. Must be sent as an object.</param>
+        /// <returns>A transaction ID, i.e. a txid.</returns>
         public string NameUpdate(string name, string value, object parameters)
         {
             return _rpcConnector.MakeRequest<string>(RpcMethods.name_update,name,value,parameters);
         }
 
+        /// <summary>
+        /// XAYA: Gets a list of all names in a wallet. 
+        /// </summary>
+        /// <returns>A list of "GetNameListResponse" objects. </returns>
         public List<GetNameListResponse> GetNameList()
         {
             return _rpcConnector.MakeRequest<List<GetNameListResponse>>(RpcMethods.name_list);
         }
 
+        /// <summary>
+        /// XAYA: Registers a name on the XAYA blockchain. 
+        /// </summary>
+        /// <param name="name">The name to register. It must include the namespace, e.g. "p/".</param>
+        /// <param name="value">The value must be valid JSON, e.g. "{}". </param>
+        /// <param name="parameters">Any parameters to send. This can be a new/null object.</param>
+        /// <returns>A XAYA txid is returned if the registration succeeds. Otherwise, "Failed." is returned.</returns>
+        public string RegisterName(string name, string value, object parameters)
+        {
+            string r = "Failed.";
+            // The value must be valid JSON, so we set it to valid JSON if it's empty.
+            if (value == string.Empty)
+            {
+                value = "{}";
+            }
+
+            bool valueIsGood = IsValidJson(value);
+            bool nameIsGood = IsValidName(name);
+            if (valueIsGood && nameIsGood)
+            {
+                try
+                {
+                    r = _rpcConnector.MakeRequest<string>(RpcMethods.name_register, name, value, parameters);
+                }
+                catch
+                {
+                    r = "Failed.";
+                }
+            }
+
+            return r;
+        }
+
+
+        /// <summary>
+        /// XAYA: Checks to see if a name exists. Text fields show "" (an empty string) if the name does not exist, 
+        /// numeric fields return -1 if it does not exist, and boolean fileds return false if the name does not exist. Otherwise, regular data is returned.
+        /// </summary>
+        /// <param name="name">The name to check. It must be a valid name and include the namespace, e.g. "p/".</param>
+        /// <returns>Returns a GetShowNameResponse object. Text fields show an empty string if the name does not exist, 
+        /// numeric fields return -1 if it does not exist, and boolean fileds return false if the name does not exist. Otherwise, regular data is returned.</returns> 
+        public GetShowNameResponse ShowName(string name)
+        {
+            GetShowNameResponse response = new GetShowNameResponse();
+            // Initialise all fields as empty.
+            response.name = "";
+            response.name_encoding = "";
+            response.name_error = "";
+            response.value = "";
+            response.value_encoding = "";
+            response.txid = "";
+            response.vout = -1;
+            response.address = "";
+            response.ismine = false;
+            response.height = -1;
+
+            try
+            {
+                response = _rpcConnector.MakeRequest<GetShowNameResponse>(RpcMethods.name_show, name);
+            }
+            catch
+            {
+                // leave as is
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// XAYA: Gets a list of all pending names in the mempool. You can use this method after creating a name when 
+        /// you want to find out if it has been mined into the blockchain or not. 
+        /// </summary>
+        /// <returns>A list of all pending names in the mempool that have not been mined into the blockchain yet.</returns>
+        public List<GetNamePendingResponse> NamePending()
+        {
+            return _rpcConnector.MakeRequest<List<GetNamePendingResponse>>(RpcMethods.name_pending);
+        }
+
+        /// <summary>
+        /// XAYA: Returns a list of names existing on the XAYA blockchain. The list starts at "name" and continues for "count".
+        /// </summary>
+        /// <param name="name">The name to start the list from.</param>
+        /// <param name="count">The number of names to return from the starting name.</param>
+        /// <returns>A List of GetNameScanResponses that contain information about names.</returns>
+        public List<GetNameScanResponse> NameScan(string name, int count)
+        {
+            List<GetNameScanResponse> response = _rpcConnector.MakeRequest<List<GetNameScanResponse>>(RpcMethods.name_scan, name, count);
+
+            return response;
+        }
+
+        /// <summary>
+        /// XAYA: Send CHI coins to a "name" instead of a traditional crypto address. 
+        /// The name is also associated with a regular CHI address. We can send coins to a name as a proxy. 
+        /// </summary>
+        /// <param name="name">The "name" that will receive the coins. </param>
+        /// <param name="amount">The amount of CHI to sent to 8 decimal places. </param>
+        /// <returns>A txid.</returns>
+        public string SendToName(string name, decimal amount)
+        {
+            string response = _rpcConnector.MakeRequest<string>(RpcMethods.sendtoname, name, amount);
+
+            return response;
+        }
+
+        /// <summary>
+        /// XAYA: NOTE - this is not a regular method and requires the daemon to run with the "-namehistory" option. 
+        /// The name_history RPC method returns the entire history of a name's values on the blockchain.
+        /// </summary>
+        /// <param name="name">The name you want to know the history for.</param>
+        /// <returns>A List of GetNameHistoryResponses that contain the complete history for a name.</returns>
+        public List<GetNameHistoryResponse> NameHistory(string name)
+        {
+            List<GetNameHistoryResponse> response = _rpcConnector.MakeRequest<List<GetNameHistoryResponse>>(RpcMethods.name_history, name);
+
+            return response;
+        }
+
+
+        /// <summary>
+        /// XAYA: This is a blocking operation. It is used in independent threads to wait for new game states to come in.
+        /// </summary>
         public void WaitForChange()
         {
             _rpcConnector.MakeRequest<string>(RpcMethods.waitforchange);
         }
 
+        /// <summary>
+        /// XAYA: This is called after the WaitForChange method to get the most recent game state. 
+        /// </summary>
+        /// <returns>The most recent game state.</returns>
         public GameStateResult GetCurrentState()
         {
             return _rpcConnector.MakeRequest<GameStateResult>(RpcMethods.getcurrentstate);
         }
+
+
+        #region XAYA utilities for error checking, etc.
+
+        /// <summary>
+        /// XAYA: Returns whether or not a name is valid.
+        /// </summary>
+        /// <param name="name">The name including the namespace.</param>
+        /// <returns>True if the name is valid. False if the name is not valid.</returns>
+        private static bool IsValidName(string name)
+        {
+            bool result = false;
+
+            var match = Regex.Match(name, @"[a-z]+\/.*");
+
+            if (!match.Success)
+                return result;
+
+            // We must measure bytes and NOT characters.
+            // https://github.com/xaya/xaya/blob/master/doc/xaya/blockchain.md#name-and-value-restrictions-
+            int length = System.Text.ASCIIEncoding.UTF8.GetByteCount(name);
+
+            if (name.Length >= 3 && length <= 256)
+            {
+                // If the above tests pass, then we have a valid name.
+                return true;
+            }
+            // This is merely a catch all. 
+            return result;
+        }
+
+        /// <summary>
+        /// XAYA: Returns whether or not a string is valid JSON. 
+        /// From https://stackoverflow.com/questions/14977848/how-to-make-sure-that-string-is-valid-json-using-json-net
+        /// </summary>
+        /// <param name="strInput">The string to check.</param>
+        /// <returns>True for valid JSON or false for invalid JSON.</returns>
+        private static bool IsValidJson(string strInput)
+        {
+            strInput = strInput.Trim();
+            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For objects
+                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For arrays
+            {
+                try
+                {
+                    var obj = JToken.Parse(strInput);
+                    return true;
+                }
+                catch (JsonReaderException jex)
+                {
+                    // Exception in parsing JSON.
+                    Console.WriteLine(jex.Message);
+                    return false;
+                }
+                catch (Exception ex) // Other exceptions.
+                {
+                    Console.WriteLine(ex.ToString());
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
 
 
     }
