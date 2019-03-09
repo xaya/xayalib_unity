@@ -38,7 +38,7 @@ If you make any changes to the "BitcoinLib" and "XAYAWrapper" projects, you must
 
 NOTE: To run XAYAUnity, You should have the XAYA Electron wallet running, but can optionally use the XAYA QT wallet or xayad, provided you run them with the proper flags. 
 
-For developer support, visit our [Development forum here](https://forum.xaya.io/forum/6-development/):
+For developer support, visit our [Development forum here](https://forum.xaya.io/forum/6-development/).
 
 
 
