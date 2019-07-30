@@ -18,6 +18,7 @@ namespace BitcoinLib.RPC.Connector
     public sealed class RpcConnector : IRpcConnector
     {
         private readonly ICoinService _coinService;
+        public int id = 0;
 
         public RpcConnector(ICoinService coinService)
         {
@@ -26,13 +27,34 @@ namespace BitcoinLib.RPC.Connector
 
         public T MakeRequest<T>(RpcMethods rpcMethod, params object[] parameters)
         {
-            var jsonRpcRequest = new JsonRpcRequest(1, rpcMethod.ToString(), parameters);
+            id++;
+            var jsonRpcRequest = new JsonRpcRequest(id, rpcMethod.ToString(), parameters);
             var webRequest = (HttpWebRequest) WebRequest.Create(_coinService.Parameters.SelectedDaemonUrl);
             byte[] byteArray;
 
             if (rpcMethod == RpcMethods.stop) /* Dirty workaround to properly support json notification syntax, lets merge this into library later properly*/
             {
                 var jsonRpcRequestNotification = new JsonRpcRequestNotification(rpcMethod.ToString(), parameters);
+                SetBasicAuthHeader(webRequest, _coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
+                webRequest.Credentials = new NetworkCredential(_coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
+
+                webRequest.ContentType = "application/json-rpc";
+                webRequest.Method = "POST";
+                webRequest.Proxy = null;
+                webRequest.Timeout = _coinService.Parameters.RpcRequestTimeoutInSeconds * GlobalConstants.MillisecondsInASecond;
+                byteArray = jsonRpcRequestNotification.GetBytes();
+                webRequest.ContentLength = jsonRpcRequestNotification.GetBytes().Length;
+            }
+            if (rpcMethod == RpcMethods.waitforchange) /* Latest XAYA library addition pases waitforchange arguments as array, this also needs special handling*/
+            {
+                string[] aRR = new string[parameters.Length];
+
+                for (int s = 0; s < parameters.Length; s++)
+                {
+                    aRR[s] = parameters[s].ToString();
+                }
+
+                var jsonRpcRequestNotification = new JsonRpcRequestArray(id, rpcMethod.ToString(), aRR);
                 SetBasicAuthHeader(webRequest, _coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
                 webRequest.Credentials = new NetworkCredential(_coinService.Parameters.RpcUsername, _coinService.Parameters.RpcPassword);
 

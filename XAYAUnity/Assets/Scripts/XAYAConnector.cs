@@ -88,8 +88,7 @@ public class XAYAConnector : MonoBehaviour
         {
             if (client.connected && wrapper != null)
             {
-
-                wrapper.xayaGameService.WaitForChange();
+                wrapper.xayaGameService.WaitForChange("");
 
                 GameStateResult actualState = wrapper.xayaGameService.GetCurrentState();
 

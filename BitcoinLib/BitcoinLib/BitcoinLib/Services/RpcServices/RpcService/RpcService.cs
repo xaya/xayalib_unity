@@ -821,9 +821,9 @@ namespace BitcoinLib.Services
         /// <summary>
         /// XAYA: This is a blocking operation. It is used in independent threads to wait for new game states to come in.
         /// </summary>
-        public void WaitForChange()
+        public void WaitForChange(string lastProcessedBlockHash)
         {
-            _rpcConnector.MakeRequest<string>(RpcMethods.waitforchange);
+            _rpcConnector.MakeRequest<string>(RpcMethods.waitforchange, lastProcessedBlockHash);
         }
 
         /// <summary>

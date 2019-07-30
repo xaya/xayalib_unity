@@ -127,6 +127,7 @@
     <Compile Include="BitcoinLib\RPC\Connector\RpcConnector.cs" />
     <Compile Include="BitcoinLib\RPC\RequestResponse\JsonRpcError.cs" />
     <Compile Include="BitcoinLib\RPC\RequestResponse\JsonRpcRequest.cs" />
+    <Compile Include="BitcoinLib\RPC\RequestResponse\JsonRpcRequestArray.cs" />
     <Compile Include="BitcoinLib\RPC\RequestResponse\JsonRpcRequestNotification.cs" />
     <Compile Include="BitcoinLib\RPC\RequestResponse\JsonRpcResponse.cs" />
     <Compile Include="BitcoinLib\RPC\Specifications\RpcErrorCode.cs" />

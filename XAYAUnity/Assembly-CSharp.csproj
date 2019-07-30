@@ -65,6 +65,119 @@
     <Compile Include="Assets\CielaSpike\Thread Ninja\Task.cs" />
     <Compile Include="Assets\CielaSpike\Thread Ninja\TaskState.cs" />
     <Compile Include="Assets\CielaSpike\Thread Ninja\ThreadNinjaMonoBehaviourExtensions.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Auxiliary\Encoders\ASCIIEncoder.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Auxiliary\Encoders\DataEncoder.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Auxiliary\Encoders\HexEncoder.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Auxiliary\GlobalConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Auxiliary\Hashing.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Auxiliary\UnixTime.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Base\CoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Base\CoinParameters.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Base\ICoinParameters.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Bitcoin\BitcoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Bitcoin\IBitcoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Dallar\DallarConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Dallar\IDallarConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Dash\DashConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Dash\IDashConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Dogecoin\DogecoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Dogecoin\IDogecoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Litecoin\ILitecoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Litecoin\LitecoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Mogwaicoin\IMogwaicoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Mogwaicoin\MogwaicoinConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Smartcash\ISmartcashConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\Smartcash\SmartcashConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\XAYA\IXAYAConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\CoinParameters\XAYA\XAYAConstants.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\RawTransactions\RawTransactionExcessiveFeeException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\RawTransactions\RawTransactionInvalidAmountException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\Rpc\RpcException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\Rpc\RpcInternalServerErrorException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\Rpc\RpcRequestTimeoutException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\Rpc\RpcResponseDeserializationException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExceptionHandling\RpcExtenderService\GetAddressBalanceException.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExtensionMethods\CoinServiceExtensionMethods.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\ExtensionMethods\DecimalExtensionMethods.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\AddNode\NodeAction.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\CreateRawTransaction\CreateRawTransactionInput.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\CreateRawTransaction\CreateRawTransactionOutput.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\CreateRawTransaction\CreateRawTransactionRequest.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\SignRawTransaction\SigHashType.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\SignRawTransaction\SignRawTransactionInput.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Requests\SignRawTransaction\SignRawTransactionRequest.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\Bridges\ITransactionResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\CreateMultiSigResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\DecodeRawTransactionResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\DecodeScriptResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\EstimateSmartFeeResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetAddedNodeInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetBlockchainInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetBlockResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetBlockTemplateResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetChainTipsResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetFundRawTransactionResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetMemPoolInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetMiningInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetNameHistoryResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetNameListResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetNamePendingResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetNameScanResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetNetTotalsResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetNetworkInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetPeerInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetRawMemPoolResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetRawTransactionResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetShowNameResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetTransactionResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetTxOutSetInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\GetWalletInfoResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ListAddressGroupingsResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ListReceivedByAccountResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ListReceivedByAddressResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ListSinceBlockResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ListTransactionsResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ListUnspentResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\SharedComponents\Vin.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\SharedComponents\Vout.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\SignRawTransactionResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Responses\ValidateAddressResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\Connector\IRpcConnector.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\Connector\RawRpcConnector.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\Connector\RpcConnector.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\RequestResponse\JsonRpcError.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\RequestResponse\JsonRpcRequest.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\RequestResponse\JsonRpcRequestArray.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\RequestResponse\JsonRpcRequestNotification.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\RequestResponse\JsonRpcResponse.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\Specifications\RpcErrorCode.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\RPC\Specifications\RpcMethods.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Base\ICoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Bitcoin\BitcoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Bitcoin\IBitcoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Cryptocoin\CryptocoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Cryptocoin\ICryptocoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Dallar\DallarService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Dallar\IDallarService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Dash\DashService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Dash\IDashService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Dogecoin\DogecoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Dogecoin\IDogecoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Litecoin\ILitecoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Litecoin\LitecoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Mogwaicoin\IMogwaicoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Mogwaicoin\MogwaicoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Sarcoin\ISarcoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Sarcoin\SarcoinService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Smartcash\ISmartcashService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\Smartcash\SmartcashService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\XAYA\IXAYAService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\Coins\XAYA\XAYAService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\RpcServices\RpcExtenderService\IRpcExtenderService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\RpcServices\RpcExtenderService\RpcExtenderService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\RpcServices\RpcService\IRpcService.cs" />
+    <Compile Include="Assets\Scripts\BitcoinLib\Services\RpcServices\RpcService\RpcService.cs" />
     <Compile Include="Assets\Scripts\MoveGUIAndGameController.cs" />
     <Compile Include="Assets\Scripts\MoverObject.cs" />
     <Compile Include="Assets\Scripts\XAYAClient.cs" />
@@ -72,21 +185,22 @@
     <Compile Include="Assets\Scripts\XAYAMoverGame\CallbackFunctions.cs" />
     <Compile Include="Assets\Scripts\XAYAMoverGame\HelperFunctions.cs" />
     <Compile Include="Assets\Scripts\XAYAMoverGame\JSONClasses.cs" />
+    <Compile Include="Assets\Scripts\XAYAWrapper\XAYAWrapper.cs" />
     <None Include="Assets\JsonDotNet\link.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -290,28 +404,22 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="BitcoinLib">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Assets/JsonDotNet/Assemblies/Windows/BitcoinLib.dll</HintPath>
-    </Reference>
-    <Reference Include="XAYAWrapper">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Assets/Plugins/XAYAWrapper.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>G:/ProjectXTutorials/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>G:/WrapperTESTS/xayalib_unity/XAYAUnity/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

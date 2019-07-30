@@ -15,6 +15,12 @@ namespace BitcoinLib.RPC.RequestResponse
             Method = method;
             jsonrpc = "2.0";
             Parameters = parameters?.ToList() ?? new List<object>();
+
+            /* Latest XAYA library addition pases waitforchange arguments as array, this also needs special handling*/
+            if(method == "waitforchange")
+            {
+
+            }
         }
 
         [JsonProperty(PropertyName = "method", Order = 0)]

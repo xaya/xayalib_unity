@@ -32,9 +32,9 @@ Open the XAYAUnity folder in Unity Editor to get started.
 
 If you make any changes to the "BitcoinLib" and "XAYAWrapper" projects, you must recompile them and copy the new DLLs into the proper folders under the XAYAUnity folder. i.e.:
 
-> \XAYAUnity\Assets\Plugins\BitcoinLib.dll
+> \XAYAUnity\Assets\Plugins\XAYAWrapper.dll
 >
-> \XAYAUnity\Assets\JsonDotNet\Assemblies\Windows\XAYAWrapper.dll
+> \XAYAUnity\Assets\JsonDotNet\Assemblies\Windows\BitcoinLib.dll
 
 NOTE: To run XAYAUnity, You should have the XAYA Electron wallet running, but can optionally use the XAYA QT wallet or xayad, provided you run them with the proper flags. 
 

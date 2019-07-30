@@ -210,7 +210,7 @@ namespace BitcoinLib.Services.RpcServices.RpcService
         /// <summary>
         /// XAYA: This is a blocking operation. It is used in independent threads to wait for new game states to come in.
         /// </summary>
-        void WaitForChange();
+        void WaitForChange(string lastProcessedBlockHash);
 
         /// <summary>
         /// XAYA: This is called after the WaitForChange method to get the most recent game state. 
