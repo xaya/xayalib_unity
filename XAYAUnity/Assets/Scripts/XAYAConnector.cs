@@ -84,7 +84,8 @@ public class XAYAConnector : MonoBehaviour
 
     IEnumerator WaitForChangesInner()
     {
-        while (true)
+        bool infinite = true;
+        while (infinite)
         {
             if (client.connected && wrapper != null)
             {
@@ -114,7 +115,9 @@ public class XAYAConnector : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("actualState is null");
+                    Debug.LogWarning("actualState is null");
+                    infinite = false;
+                    yield return null;
                 }
 
             }
