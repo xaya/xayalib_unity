@@ -84,7 +84,16 @@ namespace XAYAMoverGame
                 }
 
                 PlayerUndo u = new PlayerUndo();
-                undo.Add(name, u);
+
+                if (!undo.ContainsKey(name))
+                {
+                    undo.Add(name, u);
+                }
+                else
+                {
+                    u = undo[name];
+                }
+
                 if (!isNotNew)
                 {
                     u.is_new = true;
